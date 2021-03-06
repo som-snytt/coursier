@@ -2,7 +2,7 @@ name: Test native launchers
 on:
   push:
     branches:
-    - master
+    - debug-cache-action
 
 jobs:
 
