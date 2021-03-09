@@ -17,7 +17,7 @@ jobs:
         with:
           fetch-depth: 0
           submodules: true
-      - uses: coursier/cache-action@52b1f65c8d0dcb7fd24edaf73f8c6d628a5d078f
+      - uses: coursier/cache-action@a81583d8d4026aee91617001d6c54ed838ebed0f
       - run: .github/scripts/ci-setup.sh --jvm graalvm-ce-java11:20.1.0
         shell: bash
       - run: sbt 'set version in ThisBuild := "2.0-SNAPSHOT"' jvmProjects/publishLocal
@@ -38,7 +38,7 @@ jobs:
         with:
           fetch-depth: 0
           submodules: true
-      - uses: coursier/cache-action@52b1f65c8d0dcb7fd24edaf73f8c6d628a5d078f
+      - uses: coursier/cache-action@a81583d8d4026aee91617001d6c54ed838ebed0f
       - run: .github/scripts/ci-setup.sh
         shell: bash
       - run: sbt cli/pack

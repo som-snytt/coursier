@@ -42,7 +42,7 @@ jobs:
       with:
         fetch-depth: 0
         submodules: true
-    - uses: coursier/cache-action@52b1f65c8d0dcb7fd24edaf73f8c6d628a5d078f
+    - uses: coursier/cache-action@a81583d8d4026aee91617001d6c54ed838ebed0f
     - run: .github/scripts/ci-setup.sh --jvm ${{ matrix.JDK }}
       shell: bash
     - run: .github/scripts/ci.sh
@@ -60,7 +60,7 @@ jobs:
         with:
           fetch-depth: 0
           submodules: true
-      - uses: coursier/cache-action@52b1f65c8d0dcb7fd24edaf73f8c6d628a5d078f
+      - uses: coursier/cache-action@a81583d8d4026aee91617001d6c54ed838ebed0f
       - run: .github/scripts/gpg-setup.sh
         env:
           PGP_SECRET: ${{ secrets.PGP_SECRET }}
@@ -83,7 +83,7 @@ jobs:
         with:
           fetch-depth: 0
           submodules: true
-      - uses: coursier/cache-action@52b1f65c8d0dcb7fd24edaf73f8c6d628a5d078f
+      - uses: coursier/cache-action@a81583d8d4026aee91617001d6c54ed838ebed0f
       - run: .github/scripts/gpg-setup.sh
         env:
           PGP_SECRET: ${{ secrets.PGP_SECRET }}
@@ -109,7 +109,7 @@ jobs:
         with:
           fetch-depth: 0
           submodules: true
-      - uses: coursier/cache-action@52b1f65c8d0dcb7fd24edaf73f8c6d628a5d078f
+      - uses: coursier/cache-action@a81583d8d4026aee91617001d6c54ed838ebed0f
       - run: .github/scripts/gpg-setup.sh
         env:
           PGP_SECRET: ${{ secrets.PGP_SECRET }}
@@ -139,7 +139,7 @@ jobs:
         with:
           fetch-depth: 0
           submodules: true
-      - uses: coursier/cache-action@52b1f65c8d0dcb7fd24edaf73f8c6d628a5d078f
+      - uses: coursier/cache-action@a81583d8d4026aee91617001d6c54ed838ebed0f
       - run: .github/scripts/gpg-setup.sh
         env:
           PGP_SECRET: ${{ secrets.PGP_SECRET }}
@@ -215,7 +215,7 @@ jobs:
         with:
           fetch-depth: 0
           submodules: true
-      - uses: coursier/cache-action@52b1f65c8d0dcb7fd24edaf73f8c6d628a5d078f
+      - uses: coursier/cache-action@a81583d8d4026aee91617001d6c54ed838ebed0f
       - run: .github/scripts/ci-setup.sh --jvm 8
         shell: bash
       - run: npm install && export PATH="$PATH:$(pwd)/node_modules/bower/bin" && amm-runner website.sc updateWebsite
@@ -232,7 +232,7 @@ jobs:
         with:
           fetch-depth: 0
           submodules: true
-      - uses: coursier/cache-action@52b1f65c8d0dcb7fd24edaf73f8c6d628a5d078f
+      - uses: coursier/cache-action@a81583d8d4026aee91617001d6c54ed838ebed0f
       - run: .github/scripts/ci-setup.sh --jvm 8
         shell: bash
       - run: npm install && export PATH="$PATH:$(pwd)/node_modules/bower/bin" && amm-runner website.sc updateWebsite
