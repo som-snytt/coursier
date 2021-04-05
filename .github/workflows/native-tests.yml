@@ -25,6 +25,10 @@ jobs:
       - run: sbt 'set version in ThisBuild := "2.0-SNAPSHOT"' jvmProjects/publishLocal
         if: runner.os != 'Windows'
         shell: bash
+      - run: |
+          "$COURSIER_BIN_DIR/sbt.bat" 'set version in ThisBuild := "2.0-SNAPSHOT"' jvmProjects/publishLocal
+        if: runner.os == 'Windows'
+        shell: bash
       - run: amm launcher.sc generateNativeImage --version "2.0-SNAPSHOT" --output cs-test
         if: runner.os != 'Windows'
         shell: bash
@@ -34,6 +38,12 @@ jobs:
       - run: sbt -J-Dcoursier-test-launcher=./cs-test cli-tests/test
         if: runner.os != 'Windows'
         shell: bash
+      - run: |
+          "$COURSIER_BIN_DIR/sbt.bat" cli-tests/test
+        if: runner.os == 'Windows'
+        shell: bash
+        env:
+          JAVA_OPTS="-Dcoursier-test-launcher=./cs-test"
 
   test-linux-arm64-native-launcher:
     runs-on: ubuntu-18.04
