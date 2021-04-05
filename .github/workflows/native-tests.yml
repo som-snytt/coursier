@@ -2,7 +2,7 @@ name: Test native launchers
 on:
   push:
     branches:
-    - master
+    - windows-native-launcher-test
 
 jobs:
 
