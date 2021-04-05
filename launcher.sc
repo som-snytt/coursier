@@ -26,7 +26,7 @@ private def initialLauncher(
   def packLauncher: String = {
     val path = "modules/cli/target/pack/bin/coursier"
     val sbtPath =
-      if (Util.os == "win") "bin/sbt"
+      if (Util.os == "win") Option(System.getenv("SBT")).getOrElse("sbt.bat")
       else "./sbt"
     if (!Files.exists(Paths.get(path)))
       Util.run(Seq(sbtPath, "cli/pack"))
