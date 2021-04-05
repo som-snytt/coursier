@@ -43,7 +43,7 @@ jobs:
         if: runner.os == 'Windows'
         shell: bash
         env:
-          JAVA_OPTS="-Dcoursier-test-launcher=./cs-test"
+          JAVA_OPTS: "-Dcoursier-test-launcher=./cs-test"
 
   test-linux-arm64-native-launcher:
     runs-on: ubuntu-18.04
