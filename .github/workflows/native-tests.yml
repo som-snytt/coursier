@@ -13,6 +13,9 @@ jobs:
         OS: [ubuntu-latest, windows-latest, macos-latest]
     runs-on: ${{ matrix.OS }}
     steps:
+      - run: rm -f "$(which sbt)"
+        if: runner.os == 'Windows'
+        shell: bash
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
@@ -22,7 +25,8 @@ jobs:
         with:
           jvm: graalvm-ce-java11:20.1.0
           apps: sbt-launcher:1.2.22 ammonite:2.3.8
-      - run: sbt "set version in ThisBuild := \"2.0-SNAPSHOT\"" jvmProjects/publishLocal
+      - run: sbt 'set version in ThisBuild := "2.0-SNAPSHOT"' jvmProjects/publishLocal
+        shell: bash
       - run: amm launcher.sc generateNativeImage --version "2.0-SNAPSHOT" --output cs-test
         if: runner.os != 'Windows'
         shell: bash
